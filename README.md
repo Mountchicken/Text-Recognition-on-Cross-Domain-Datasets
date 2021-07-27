@@ -83,3 +83,12 @@ or
 ```Bash
 bash scripts/test.sh
 ```
+
+# 7. Inferrence
+## 7.1 Inferrence CRNN
+- DownLoad Pretrained Checkpoints, [CRNN on STR, Checkpoints(提取码:o4mb)](https://pan.baidu.com/s/1aHiU1mDvYD5gs2G9Zr3JjQ)
+- modify `scripts/inferrence.sh`. Set up image_path and resume for the checkpoint
+- run 
+```Bash
+bash scripts/inferrence.sh
+```
