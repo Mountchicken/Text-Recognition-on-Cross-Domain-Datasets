@@ -12,7 +12,7 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
 |Alogrithms|[CRNN](#Algorithms)|
 |Train|[Train](#Train)|
 |Test|[Test](#Test)|
-|Inferrence|[Inferrence](#Inferrence)|
+|Inferrence|[Inferrence]|(#Inferrence)|
 ****
 # 3. Datasets
 ## 3.1 Scene Text Recognitons
