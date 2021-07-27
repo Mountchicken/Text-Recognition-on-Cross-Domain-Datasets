@@ -48,6 +48,7 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
 |CRNN(original)|78.2|80.8|89.4|86.7|-|-|-|
 
 - Some recognion results
+
 |Image|GT|Prediction|
 |----|----|----|
 |![name](./github_images/nickname.jpg)|MountChicken|'mountchicken'|
