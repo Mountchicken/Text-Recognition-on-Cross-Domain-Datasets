@@ -8,13 +8,13 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
 # 2. Contents👨‍💻👨‍💻
 |Part|Description|
 |----|----|
-|Datasets|[Multible datasets in lmdb form](#3.Datasets)|
+|Datasets|[Multible datasets in lmdb form](#3 Datasets)|
 |Alogrithms|[CRNN](#4. Algorithms)|
 |Train|[Train](#5. Train)|
 |Test|[Test](#6. Test)|
 |Inferrence|[Inferrence](#7. Inferrence)|
 ****
-# 3.Datasets
+# 3 Datasets
 ## 3.1 Scene Text Recognitons
 ### 3.1.1 Training Sets(Synthetic)
 |Dataset|Description|Examples|BaiduNetdisk link|
