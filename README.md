@@ -14,7 +14,7 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
 |Test|[Test](#6. Test)|
 |Inferrence|[Inferrence](#7. Inferrence)|
 ****
-# 3. Datasets
+# 3.Datasets
 ## 3.1 Scene Text Recognitons
 ### 3.1.1 Training Sets(Synthetic)
 |Dataset|Description|Examples|BaiduNetdisk link|
