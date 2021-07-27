@@ -1,4 +1,4 @@
-# General-Text-Recogniton-Zoo
+# CRNN Text Recognition on Cross Domain Datasets
 Improved CRNN on different text domains like scene text, hand written, document, chinese/english, even ancient books
 
 ****
