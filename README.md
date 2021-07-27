@@ -30,4 +30,7 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
 |ICDAR 2015(IC15)|**2077** test images instances. As text images were taken by Google Glasses without ensuringthe image quality, most of the text is very small, blurred, and multi-oriented|![IC15](./github_images/IC15.JPG)|[Scene text datasets(提取码:mfir)](https://pan.baidu.com/s/1iGAO_TcAeNDdrzIbf2pjXw)|
 |CUTE80(CUTE)|**288** It focuses on curved text recognition. Most images in CUTE have acomplex background, perspective distortion, and poor resolution|![CUTE](./github_images/CUTE.JPG)|[Scene text datasets(提取码:mfir)](https://pan.baidu.com/s/1iGAO_TcAeNDdrzIbf2pjXw)|
 ****
-
+## Hand Written
+|Dataset|Description|Examples|BaiduNetdisk link|
+|----|----|----|----|
+|IAM|IAM dataset is based on handwritten English textcopied from the LOB corpus. It contains 747 documents(6,482 lines) in the training set, 116 documents (976 lines)in the validation set and 336 documents (2,915 lines) in the testing set|![IAM](./github_images/IAM.JPG)|[IAM line level](提取码:u2a3)](https://pan.baidu.com/s/1JqKWHebquezhxtdO8z4Q1Q)|
