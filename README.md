@@ -9,6 +9,7 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
 |Part|Description|
 |----|----|
 |Datasets|[Multible datasets in lmdb form](#Datasets)|
+|Alogrithms|[CRNN](#Alogrithms)|
 
 ****
 # Datasets
