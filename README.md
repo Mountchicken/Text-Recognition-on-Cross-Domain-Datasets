@@ -35,3 +35,13 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
 |----|----|----|----|
 |IAM|IAM dataset is based on **handwritten English** text copied from the LOB corpus. It contains 747 documents(**6,482 lines**) in the training set, 116 documents (**976 lines**)in the validation set and 336 documents (2,915 lines) in the testing set|![IAM](./github_images/IAM.JPG)|[IAM_line_level(提取码:u2a3)](https://pan.baidu.com/s/1JqKWHebquezhxtdO8z4Q1Q)|
 |CASIA-HWDB2.x|CASIA-HWDB is a large-scale **Chinese hand-written** database.|![CASIA](./github_images/CASIA.JPG)|[HWDB2.x(提取码:ozqu)](https://pan.baidu.com/s/1X-uhmR1i9mWXOGQ9LGjJVA)|
+
+****
+# Algorithms
+## CRNN
+### On Scene Text
+- I reimplemented the most classic and wildly deployed algorithm CRNN. The orignal backbone is replaced by a modifyied ResNet and the results below are trained on MJ + ST.
+||IIIT5K|SVT|IC03|IC13|IC15|SVTP|CUTE|
+|----|----|----|----|----|----|----|----|
+|CRNN(reimplemented)|**91.2**|**84.4**|**90.8**|**88.0**|**73.1**|**71.8**|**77.4**|
+|CRNN(original)|78.2|80.8|89.4|86.7|-|-|-|
