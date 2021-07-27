@@ -41,6 +41,7 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
 ## CRNN
 ### On Scene Text
 - I reimplemented the most classic and wildly deployed algorithm CRNN. The orignal backbone is replaced by a modifyied ResNet and the results below are trained on MJ + ST.
+
 |#|IIIT5K|SVT|IC03|IC13|IC15|SVTP|CUTE|
 |----|----|----|----|----|----|----|----|
 |CRNN(reimplemented)|**91.2**|**84.4**|**90.8**|**88.0**|**73.1**|**71.8**|**77.4**|
