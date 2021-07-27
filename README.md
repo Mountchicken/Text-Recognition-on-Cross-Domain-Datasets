@@ -8,13 +8,13 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
 # 2. Contents👨‍💻👨‍💻
 |Part|Description|
 |----|----|
-|Datasets|[Multible datasets in lmdb form](#3 Datasets)|
-|Alogrithms|[CRNN](#4. Algorithms)|
-|Train|[Train](#5. Train)|
-|Test|[Test](#6. Test)|
-|Inferrence|[Inferrence](#7. Inferrence)|
+|Datasets|[Multible datasets in lmdb form](#Datasets)|
+|Alogrithms|[CRNN](#Algorithms)|
+|Train|[Train](#Train)|
+|Test|[Test](#Test)|
+|Inferrence|[Inferrence](#Inferrence)|
 ****
-# 3 Datasets
+# Datasets
 ## 3.1 Scene Text Recognitons
 ### 3.1.1 Training Sets(Synthetic)
 |Dataset|Description|Examples|BaiduNetdisk link|
@@ -40,7 +40,7 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
 |CASIA-HWDB2.x|CASIA-HWDB is a large-scale **Chinese hand-written** database.|![CASIA](./github_images/CASIA.JPG)|[HWDB2.x(提取码:ozqu)](https://pan.baidu.com/s/1X-uhmR1i9mWXOGQ9LGjJVA)|
 
 ****
-# 4. Algorithms
+# Algorithms
 ## 4.1 CRNN
 ### 4.1.1 On Scene Text
 - I reimplemented the most classic and wildly deployed algorithm CRNN. The orignal backbone is replaced by a modifyied ResNet and the results below are trained on MJ + ST.
@@ -60,7 +60,7 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
 
 - note that we only predict 0-9, a-z. No upper case and punctuations. If you want to predict them, you can modify the code
 
-# 5. Train
+# Train
 ## 5.1 Train CRNN
 ### 5.1.1 Train CRNN on Scene Text
 - modify `scripts/train.sh`. Set up training set path and evaluation set path.
@@ -74,7 +74,7 @@ bash scripts/train.sh
 or
 -- alphabets 0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~ \
 ```
-# 6. Test
+# Test
 ## 6.1 Test CRNN
 ### 6.1.1 Test CRNN on Scene Text
 - DownLoad Pretrained Checkpoints, [CRNN on STR, Checkpoints(提取码:o4mb)](https://pan.baidu.com/s/1aHiU1mDvYD5gs2G9Zr3JjQ)
@@ -84,7 +84,7 @@ or
 bash scripts/test.sh
 ```
 
-# 7. Inferrence
+# Inferrence
 ## 7.1 Inferrence CRNN
 - DownLoad Pretrained Checkpoints, [CRNN on STR, Checkpoints(提取码:o4mb)](https://pan.baidu.com/s/1aHiU1mDvYD5gs2G9Zr3JjQ)
 - modify `scripts/inferrence.sh`. Set up image_path and resume for the checkpoint
