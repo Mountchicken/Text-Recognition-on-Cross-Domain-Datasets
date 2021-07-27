@@ -50,10 +50,10 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
 - Some recognion results
 |Image|GT|Prediction|
 |----|----|----|
-|![name](./github/nickname.jpg)|MountChicken|'mountchicken'|
-|![1](./github/1.jpg)|I am so sorry|'iamsosory'|
-|![2](./github/2.jpg)|I still love you|'istilloveyou'|
-|![3](./github/3.jpg)|Can we begin again|'Can we begin again'|
+|![name](./github_images/nickname.jpg)|MountChicken|'mountchicken'|
+|![1](./github_images/1.jpg)|I am so sorry|'iamsosory'|
+|![2](./github_images/2.jpg)|I still love you|'istilloveyou'|
+|![3](./github_images/3.jpg)|Can we begin again|'Can we begin again'|
 
 - note that we only predict 0~9, a~z. No upper case and punctuations. If you want to predict them, you can modify the code
 
