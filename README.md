@@ -9,10 +9,10 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
 |Part|Description|
 |----|----|
 |Datasets|[Multible datasets in lmdb form](#3.Datasets)|
-|Alogrithms|[CRNN](#4.Algorithms)|
-|Train|[Train](#5.Train)|
-|Test|[Test](#6.Test)|
-|Inferrence|[Inferrence](#7.Inferrence)|
+|Alogrithms|[CRNN](#4. Algorithms)|
+|Train|[Train](#5. Train)|
+|Test|[Test](#6. Test)|
+|Inferrence|[Inferrence](#7. Inferrence)|
 ****
 # 3. Datasets
 ## 3.1 Scene Text Recognitons
