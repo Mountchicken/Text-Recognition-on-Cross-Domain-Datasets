@@ -11,6 +11,8 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
 |Datasets|[Multible datasets in lmdb form](#Datasets)|
 |Alogrithms|[CRNN](#Algorithms)|
 |Train|[Train](#Train)|
+|Test|[Test](#Test)|
+|Inferrence|[Inferrence](#Inferrence)|
 ****
 # 3. Datasets
 ## 3.1 Scene Text Recognitons
@@ -71,4 +73,13 @@ bash scripts/train.sh
 -- alphabets 0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ \
 or
 -- alphabets 0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~ \
+```
+# 6. Test
+## 6.1 Test CRNN
+### 6.1.1 Test CRNN on Scene Text
+- DownLoad Pretrained Checkpoints, [CRNN on STR, Checkpoints](提取码:o4mb)](https://pan.baidu.com/s/1aHiU1mDvYD5gs2G9Zr3JjQ)
+- modify `scripts/test.sh`. Set up test_data_dir and resume for the checkpoint
+- run 
+```Bash
+bash scripts/test.sh
 ```
