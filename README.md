@@ -15,7 +15,7 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
 ## Scene Text Recognitons
 |Dataset|Description|Examples|BaiduNetdisk link|
 |----|----|----|----|
-|SynthText|**9 million** synthetic text instance images from a set of 90k common English words. Words are rendered onto nartural images with random transformations|![SynthText](./github_images/SynthText.png)|ddd|
+|SynthText|**9 million** synthetic text instance images from a set of 90k common English words. Words are rendered onto nartural images with random transformations|![SynthText](./github_images/SynthText.JPG)|ddd|
 |MJSynth|ddd|ddd|ddd|
 
 
