@@ -13,7 +13,6 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
 ****
 # Datasets
 ## Scene Text Recognitons
-- In scene text recogniton tasks. the most frequently used training set is `SynthText(ST, NIPS2014)` and `MJSynth(MJ, CVPR2016)`
 |Dataset|Description|Examples|BaiduNetdisk link|
 |----|----|----|----|
 |SynthText|**9 million** synthetic text instance images from a set of 90k common English words. Words are rendered onto nartural images with random transformations|ddd|ddd|
