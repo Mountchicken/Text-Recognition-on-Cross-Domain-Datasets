@@ -28,7 +28,6 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
 |ICDAR 2003(IC03)|**867** test image instances|![IC03](./github_images/IC03.JPG)|[Scene text datasets(提取码:ttti)](https://pan.baidu.com/s/1E_rq-LK7ENoodvqtDZQ-dg)|
 |ICDAR 2013(IC13)|**1015** test images instances|![IC13](./github_images/IC13.JPG)|[Scene text datasets(提取码:ttti)](https://pan.baidu.com/s/1E_rq-LK7ENoodvqtDZQ-dg)|
 |ICDAR 2015(IC15)|**2077** test images instances. As text images were taken by Google Glasses without ensuringthe image quality, most of the text is very small, blurred, and multi-oriented|![IC15](./github_images/IC15.JPG)|[Scene text datasets(提取码:ttti)](https://pan.baidu.com/s/1E_rq-LK7ENoodvqtDZQ-dg)|
-|CUTE80(CUTE)|**288** It focuses on curved text recognition. Most images in CUTE have a
-complex background, perspective distortion, and poor resolution|![CUTE](./github_images/CUTE.JPG)|[Scene text datasets(提取码:ttti)](https://pan.baidu.com/s/1E_rq-LK7ENoodvqtDZQ-dg)|
+|CUTE80(CUTE)|**288** It focuses on curved text recognition. Most images in CUTE have acomplex background, perspective distortion, and poor resolution|![CUTE](./github_images/CUTE.JPG)|[Scene text datasets(提取码:ttti)](https://pan.baidu.com/s/1E_rq-LK7ENoodvqtDZQ-dg)|
 ****
 
