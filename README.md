@@ -46,3 +46,14 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
 |----|----|----|----|----|----|----|----|
 |CRNN(reimplemented)|**91.2**|**84.4**|**90.8**|**88.0**|**73.1**|**71.8**|**77.4**|
 |CRNN(original)|78.2|80.8|89.4|86.7|-|-|-|
+
+- Some recognion results
+|Image|GT|Prediction|
+|----|----|----|
+|![name](./github/nickname.jpg)|MountChicken|'mountchicken'|
+|![1](./github/1.jpg)|I am so sorry|'iamsosory'|
+|![2](./github/2.jpg)|I still love you|'istilloveyou'|
+|![3](./github/3.jpg)|Can we begin again|'Can we begin again'|
+
+- note that we only predict 0~9, a~z. No upper case and punctuations. If you want to predict them, you can modify the code
+
