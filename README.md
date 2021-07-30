@@ -94,6 +94,12 @@ bash scripts/scene_text/train.sh
 or
 -- alphabets 0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~ \
 ```
+### 5.1.2 Train CRNN on IAM dataset
+- modify `scripts/iam_dataset/train.sh`. Set up training set path and evaluation set path.
+- run 
+```Bash
+bash scripts/iam_dataset/train.sh
+```
 # Test
 ## 6.1 Test CRNN
 ### 6.1.1 Test CRNN on Scene Text
@@ -103,12 +109,25 @@ or
 ```Bash
 bash scripts/scene_text/test.sh
 ```
-
+### 6.1.2 Test CRNN on IAM dataset
+- DownLoad Pretrained Checkpoints, [CRNN on IAM, Checkpoints(提取码:o4mb)](https://pan.baidu.com/s/1aHiU1mDvYD5gs2G9Zr3JjQ)
+- modify `scripts/iam_dataset/test.sh`. Set up test_data_dir and resume for the checkpoint
+- run 
+```Bash
+bash scripts/iam_dataset/test.sh
+```
 # Inferrence
-## 7.1 Inferrence CRNN
+## 7.1 Inferrence CRNN on Scene Text
 - DownLoad Pretrained Checkpoints, [CRNN on STR, Checkpoints(提取码:o4mb)](https://pan.baidu.com/s/1aHiU1mDvYD5gs2G9Zr3JjQ)
 - modify `scripts/scene_text/inferrence.sh`. Set up image_path and resume for the checkpoint
 - run 
 ```Bash
 bash scripts/scene_text/inferrence.sh
+```
+## 7.2 Inferrence CRNN on IAM dataset
+- DownLoad Pretrained Checkpoints, [CRNN on IAM, Checkpoints(提取码:o4mb)](https://pan.baidu.com/s/1aHiU1mDvYD5gs2G9Zr3JjQ)
+- modify `scripts/iam_dataset/inferrence.sh`. Set up image_path and resume for the checkpoint
+- run 
+```Bash
+bash scripts/iam_dataset/inferrence.sh
 ```
