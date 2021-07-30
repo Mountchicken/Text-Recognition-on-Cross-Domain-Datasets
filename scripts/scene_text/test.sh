@@ -1,0 +1,12 @@
+CUDA_VISIBLE_DEVICES=0,1 python new_main.py \
+  --test_data_dir ../text_recognition_datasets/scene_text_benchmarks/IIIT5K_3000 \
+  --height 32 \
+  --width 100 \
+  --max_len 25 \
+  --arch CRNN_Scene \
+  --with_lstm \
+  --evaluate \
+  --lower \
+  --resume runs/best_model/scene/model_best.pth.tar \
+  --evaluation_metric accuracy \
+  --alphabets 0123456789abcdefghijklmnopqrstuvwxyz \
