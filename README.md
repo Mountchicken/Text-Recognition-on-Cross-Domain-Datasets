@@ -2,6 +2,11 @@
 Improved CRNN on different text domains like scene text, hand written, document, chinese/english, even ancient books
 
 ****
+# Updates😦😦
+|Date|Description|
+|----|----|
+|7/30|Checkpoint on IAM dataset has been released. You can test your English handwritten now|
+****
 # 1. Welcome!😃😃
 Now I'm focusing on a project to build a general ocr systems which can recognize different text domains. From scene text, hand written, document, chinese, english to even ancient books like confucian classics. So far I don't have a clear idea about how to do it, but let's just do it step by step. This repository is suitable for greens who are interesed in text recognition(I am a green too😂).
 ****
