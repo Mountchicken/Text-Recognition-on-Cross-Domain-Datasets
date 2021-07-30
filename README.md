@@ -64,14 +64,29 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
 |![3](./github_images/3.jpg)|Can we begin again|'canwebeginagain'|
 
 - note that we only predict 0-9, a-z. No upper case and punctuations. If you want to predict them, you can modify the code
+****
+### 4.1.2 On Handwritten
+- Relative experiments are conducted on IAM dataset and CASIA-HWDB
+
+|Dataset|Word Accuracy|
+|----|----|
+|IAM(line level)|67.2|
+|CASIA-HWDB2.0-2.2||
+
+- Some recognion results
+
+|Image|GT|Prediction|
+|----|----|----|
+|![1](./github_images/IAM2.jpg)|Just Somebody I Can Kiss|'Just Somebody I can kiss'|
+|![2](./github_images/IAM3.jpg)|Just something I can turn to|'Just something I can turn to'|
 
 # Train
 ## 5.1 Train CRNN
 ### 5.1.1 Train CRNN on Scene Text
-- modify `scripts/train.sh`. Set up training set path and evaluation set path.
+- modify `scripts/scene_text/train.sh`. Set up training set path and evaluation set path.
 - run 
 ```Bash
-bash scripts/train.sh
+bash scripts/scene_text/train.sh
 ```
 - If you want to predict more characters, add a line in `scripts/train.sh`
  ```Bash
@@ -83,17 +98,17 @@ or
 ## 6.1 Test CRNN
 ### 6.1.1 Test CRNN on Scene Text
 - DownLoad Pretrained Checkpoints, [CRNN on STR, Checkpoints(提取码:o4mb)](https://pan.baidu.com/s/1aHiU1mDvYD5gs2G9Zr3JjQ)
-- modify `scripts/test.sh`. Set up test_data_dir and resume for the checkpoint
+- modify `scripts/scene_text/test.sh`. Set up test_data_dir and resume for the checkpoint
 - run 
 ```Bash
-bash scripts/test.sh
+bash scripts/scene_text/test.sh
 ```
 
 # Inferrence
 ## 7.1 Inferrence CRNN
 - DownLoad Pretrained Checkpoints, [CRNN on STR, Checkpoints(提取码:o4mb)](https://pan.baidu.com/s/1aHiU1mDvYD5gs2G9Zr3JjQ)
-- modify `scripts/inferrence.sh`. Set up image_path and resume for the checkpoint
+- modify `scripts/scene_text/inferrence.sh`. Set up image_path and resume for the checkpoint
 - run 
 ```Bash
-bash scripts/inferrence.sh
+bash scripts/scene_text/inferrence.sh
 ```
