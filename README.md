@@ -2,7 +2,7 @@
 Improved CRNN on different text domains like scene text, hand written, document, chinese/english, even ancient books
 
 ****
-# Updates😦😦
+# Update🙂🙂
 |Date|Description|
 |----|----|
 |7/30|Checkpoint on IAM dataset has been released. You can test your English handwritten now|
