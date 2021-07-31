@@ -72,7 +72,7 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
 |Dataset|Word Accuracy|
 |----|----|
 |IAM(line level)|67.2|
-|CASIA-HWDB2.0-2.2||
+|CASIA-HWDB2.0-2.2|46.7|
 
 - Some recognion results
 
