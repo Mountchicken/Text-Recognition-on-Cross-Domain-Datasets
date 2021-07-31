@@ -80,6 +80,13 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
 |----|----|----|
 |![1](./github_images/IAM2.jpg)|Just Somebody I Can Kiss|'Just Somebody I can kiss'|
 |![2](./github_images/IAM3.jpg)|Just something I can turn to|'Just something I can turn to'|
+|![3](./github_images/c3.jpg)|昨夜西风凋碧树，独上西楼，望尽天涯路。|'昨夜西风调瑟树,独上西楼。望尽天涯路'|
+|![4](./github_images/c4.jpg)|衣带渐宽终不悔，为伊消得人憔悴|'衣带渐宽终不海,为伸消得人憔悴'|
+|![5](./github_images/c5.jpg)|众里寻他千百度，蓦然回首，那人却在灯火阑珊处|'众里寻他千百度,暮然回首,那人却在灯火闻班然'|
+|![6](./github_images/c6.jpg)|你好，中国|'你好，中国'|
+|![7](./github_images/c7.jpg)|欢迎来到重庆|'欢迎来到重庆'|
+|![8](./github_images/c8.jpg)|这里是中国，该滚的是你们吧|'这里是中国,该派的是你们吧'|
+- Chinese handwritten are sufferd from imbalanced words contribution. So sometimes it's hard to recognize some rare words 
 
 # Train
 ## 5.1 Train CRNN
@@ -101,6 +108,12 @@ or
 ```Bash
 bash scripts/iam_dataset/train.sh
 ```
+### 5.1.3 Train CRNN on CASIA_HWDB dataset
+- modify `scripts/CASIA_HWDB/train.sh`. Set up training set path and evaluation set path.
+- run 
+```Bash
+bash scripts/CASIA_HWDB/train.sh
+```
 # Test
 ## 6.1 Test CRNN
 ### 6.1.1 Test CRNN on Scene Text
@@ -117,6 +130,13 @@ bash scripts/scene_text/test.sh
 ```Bash
 bash scripts/iam_dataset/test.sh
 ```
+### 6.1.3 Test CRNN on CASIA_HWDB dataset
+- DownLoad Pretrained Checkpoints, [CRNN on CASIA_HWDB, Checkpoints(提取码:ujpy)](https://pan.baidu.com/s/1AfWdvW9ShS09BIiBTIpa4Q)
+- modify `scripts/CASIA_HWDB/test.sh`. Set up test_data_dir and resume for the checkpoint
+- run 
+```Bash
+bash scripts/CASIA_HWDB/test.sh
+```
 # Inferrence
 ## 7.1 Inferrence CRNN on Scene Text
 - DownLoad Pretrained Checkpoints, [CRNN on STR, Checkpoints(提取码:o4mb)](https://pan.baidu.com/s/1aHiU1mDvYD5gs2G9Zr3JjQ)
@@ -131,4 +151,11 @@ bash scripts/scene_text/inferrence.sh
 - run 
 ```Bash
 bash scripts/iam_dataset/inferrence.sh
+```
+## 7.3 Inferrence CRNN on CASIA_HWDB dataset
+- DownLoad Pretrained Checkpoints, [CRNN on CASIA_HWDB, Checkpoints(提取码:ujpy)](https://pan.baidu.com/s/1AfWdvW9ShS09BIiBTIpa4Q)
+- modify `scripts/CASIA_HWDB/inferrence.sh`. Set up image_path and resume for the checkpoint
+- run 
+```Bash
+bash scripts/CASIA_HWDB/inferrence.sh
 ```
