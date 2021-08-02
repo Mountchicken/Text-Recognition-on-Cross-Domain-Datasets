@@ -117,7 +117,7 @@ bash scripts/CASIA_HWDB/train.sh
 # Test
 ## 6.1 Test CRNN
 ### 6.1.1 Test CRNN on Scene Text
-- DownLoad Pretrained Checkpoints, [CRNN on STR, Checkpoints(提取码:o4mb)](https://pan.baidu.com/s/1aHiU1mDvYD5gs2G9Zr3JjQ)
+- DownLoad Pretrained Checkpoints, [CRNN on STR, Checkpoints(提取码:axf7)](https://pan.baidu.com/s/1Ik6d9aiN8HFCe57pha0Gsg)
 - modify `scripts/scene_text/test.sh`. Set up test_data_dir and resume for the checkpoint
 - run 
 ```Bash
