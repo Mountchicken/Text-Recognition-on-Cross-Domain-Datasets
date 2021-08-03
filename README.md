@@ -20,7 +20,7 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
 |Datasets|[Multible datasets in lmdb form](#Datasets)|
 |Alogrithms|[CRNN](#Algorithms)|
 ||[ASTER](#ASTER)|
-|Train|[Train](##ASTER)|
+|Train|[Train](#Train)|
 |Test|[Test](#Test)|
 |Inferrence|[Inferrence](#Inferrence)|
 ****
