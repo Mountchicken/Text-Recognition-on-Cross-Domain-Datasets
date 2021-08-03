@@ -1,6 +1,10 @@
 import torch
 import torch.nn as nn
-
+import torch.nn.functional as F
+import einops
+from lib.models.backbone.ResNet import ResNet_DAN_Scene_2D
+#device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+device = torch.device('cpu')
 """To better understanding CAM, I Have to fix all the model parameters"""
 class BasicConvLayer(nn.Module):
     def __init__(self, in_channels, out_channels, kernel_size, stride, padding):
@@ -182,11 +186,87 @@ class CAM_2D(nn.Module):
 
 """ Decoupled Text Decoder """
 class DTD(nn.Module):
-    pass
+    def __init__(self, num_classes, hidden_size, dropout=0.3,max_decode_len=25):
+        super(DTD, self).__init__()
+        self.num_classes = num_classes
+        self.rnn = nn.GRU(2*hidden_size,hidden_size,batch_first=True)
+        self.fc = nn.Sequential(
+                        nn.Dropout(dropout),
+                        nn.Linear(hidden_size,num_classes)
+                        )
+        self.embeddings = nn.Embedding(num_classes+1, hidden_size) # +1 for <BOS>
+        self.hidden_size = hidden_size
+        self.max_decode_len = max_decode_len
+
+    def forward(self, feature, attention, targets, lengths):
+        '''
+        feature: shape (B, C, H, W)
+        attention: shape (B, maxT, H, W)
+        targets: shape (B, maxT)
+        lengths: shape (B)
+        '''
+        batch_size = feature.shape[0]
+        # Firstly, normalize the attention map as the original code
+        attention = attention / einops.rearrange(torch.einsum('b c h w -> b c', attention), 'b c -> b c 1 1') # b maxT h W
+        # Then Compute the context matrix
+        context = torch.einsum('b c h w,b t h w -> b t c',feature, attention) # -> b t c
+        state = torch.zeros(1, batch_size, self.hidden_size).fill_(self.num_classes).to(device)
+        outputs = []
+        for i in range(max(lengths).item()):
+            if i == 0:
+                prev_hidden = torch.zeros((batch_size)).fill_(self.num_classes).long().to(device) # the last one is used as the <BOS>.
+            else :
+                prev_hidden = targets[:,i-1]
+
+            prev_emb = self.embeddings(prev_hidden)
+            y_prev = torch.cat((context[:,i,:], prev_emb), dim=1)
+            output, state = self.rnn(y_prev.unsqueeze(dim=1), state)
+            output = output.squeeze(1)
+            outputs.append(self.fc(output))
+        outputs = torch.cat([_.unsqueeze(1) for _ in outputs], 1)
+        return outputs
+    
+    def sample(self, feature, attention):
+        '''
+        feature: shape (B, C, H, W)
+        attention: shape (B, maxT, H, W)
+        '''
+        batch_size = feature.shape[0]
+        # Firstly, normalize the attention map as the original code
+        attention = attention / einops.rearrange(torch.einsum('b c h w -> b c', attention), 'b c -> b c 1 1') # b maxT h W
+        # Then Compute the context matrix
+        context = torch.einsum('b c h w,b t h w -> b t c',feature, attention) # -> b t c
+        state = torch.zeros(1, batch_size, self.hidden_size).fill_(self.num_classes).to(device)
+        outputs = []
+        for i in range(self.max_decode_len):
+            if i == 0:
+                prev_hidden = torch.zeros((batch_size)).fill_(self.num_classes).long().to(device)
+            else:
+                prev_hidden = predicted
+            prev_emb = self.embeddings(prev_hidden)
+            y_prev = torch.cat((context[:,i,:], prev_emb), dim=1)
+            output, state = self.rnn(y_prev.unsqueeze(dim=1), state)
+            output = output.squeeze(1)
+            outputs.append(output)
+            output = F.softmax(output, dim=1)
+            _, predicted = output.max(1)
+        outputs = torch.cat([_.unsqueeze(1) for _ in outputs], 1)
+        return outputs
+
 if __name__ == "__main__":
     # model = CAM_IAM(150)
     # x = torch.randn(10, 3, 192, 2048)
     # print(model(x).shape)
-    model = CAM_2D(25)
-    x = torch.randn(10, 3, 32, 128)
-    print(model(x).shape)
+    attention_model = CAM_2D(25)
+    backbone = ResNet_DAN_Scene_2D()
+    decoder = DTD(97, 512)
+
+    x = torch.randn(2, 3, 32, 128)
+    targets = torch.arange(50).reshape(2,25).long()
+    torch.randn(2, 25).long()
+    lengths = torch.IntTensor([5,6])
+    
+    features = backbone(x)
+    attention = attention_model(features)
+    res = decoder.sample(features[-1],attention)
+    print(res.shape)
