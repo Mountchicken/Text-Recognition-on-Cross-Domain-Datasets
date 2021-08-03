@@ -1,12 +1,15 @@
 # CRNN Text Recognition on Cross Domain Datasets
 Improved CRNN on different text domains like scene text, hand written, document, chinese/english, even ancient books
 
+# ATTENTION 😮❗😮❗😮❗
+This is an experimental project, and the framework is changed every time i uploaded.(Sorry for my mess. I should progame this in a more structured way). Any way, you have to redownload this project every time I uploaded it. So that you can successfully run the code. Thanks for your Attention.🙇‍♂️🙇‍♂️
 ****
 # Update🙂🙂
 |Date|Description|
 |----|----|
 |7/30|Checkpoint on IAM dataset has been released. You can test your English handwritten now|
-|7/31|Checkpoint on CASIA-HWDB2.x has been released. You can test your Chinese handwritten now
+|7/31|Checkpoint on CASIA-HWDB2.x has been released. You can test your Chinese handwritten now|
+|8/3|New Algorithms! ASTER is reimplemented here and checkpoint for scene text recognition is released|
 ****
 # 1. Welcome!😃😃
 Now I'm focusing on a project to build a general ocr systems which can recognize different text domains. From scene text, hand written, document, chinese, english to even ancient books like confucian classics. So far I don't have a clear idea about how to do it, but let's just do it step by step. This repository is suitable for greens who are interesed in text recognition(I am a green too😂).
@@ -16,6 +19,7 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
 |----|----|
 |Datasets|[Multible datasets in lmdb form](#Datasets)|
 |Alogrithms|[CRNN](#Algorithms)|
+||[ASTER](#ASTER)|
 |Train|[Train](#Train)|
 |Test|[Test](#Test)|
 |Inferrence|[Inferrence](#Inferrence)|
@@ -87,7 +91,25 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
 |![7](./github_images/c7.jpg)|欢迎来到重庆|'欢迎来到重庆'|
 |![8](./github_images/c8.jpg)|这里是中国，该滚的是你们吧|'这里是中国,该派的是你们吧'|
 - Chinese handwritten are sufferd from imbalanced words contribution. So sometimes it's hard to recognize some rare words 
+****
+## 4.2 ASTER
+### 4.1.1 On Scene Text
+- ASTER is a classic text recognition algorithms with a **TPS rectification network** and **attention decoder**.
+|#|IIIT5K|SVT|IC03|IC13|SVTP|CUTE|
+|----|----|----|----|----|----|----|----|
+|ASTER(reimplemented)|**92.9**|88.1|91.2|88.6|**78.3**|**78.5**|
+|ASTER(original)|91.93|**88.76**|**93.49**|**89.75**|74.11|73.26|
 
+- Some recognion results
+
+|Image|Rectified Image|GT|Prediction|
+|----|----|----|
+|![1](./github_images/1.jpg)|I am so sorry|'iamsosory'|
+|![2](./github_images/2.jpg)|I still love you|'istilloveyou'|
+|![3](./github_images/3.jpg)|Can we begin again|'canwebeginagain'|
+
+- note that we only predict 0-9, a-z. No upper case and punctuations. If you want to predict them, you can modify the code
+****
 # Train
 ## 5.1 Train CRNN
 ### 5.1.1 Train CRNN on Scene Text
