@@ -1,0 +1,11 @@
+CUDA_VISIBLE_DEVICES=0,1 python inferrence.py \
+  --image_path test_images/ddd.JPG \
+  --arch ResNet_Scene \
+  --decode_type CTC \
+  --with_lstm \
+  --height 32 \
+  --width 280 \
+  --max_len 70 \
+  --padresize \
+  --resume runs/best_model/CRNN/360cc/model_best.pth.tar \
+  --alphabets casia_360cc\

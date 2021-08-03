@@ -1,0 +1,20 @@
+CUDA_VISIBLE_DEVICES=0,1 python new_main.py \
+  --synthetic_train_data_dir ../text_recognition_datasets/CVPR2016  ../text_recognition_datasets/NIPS2014/NIPS2014\
+  --test_data_dir ../text_recognition_datasets/scene_text_benchmarks/IIIT5K_3000 \
+  --batch_size 512 \
+  --workers 1 \
+  --arch ResNet_Scene \
+  --decode_type CTC \
+  --with_lstm \
+  --height 32 \
+  --width 100 \
+  --max_len 25 \
+  --epoch 6 \
+  --stepLR 4 5 \
+  --adamdelta \
+  --lr 1 \
+  --lower \
+  --evaluation_metric accuracy \
+  --alphabets lowercase \
+  --iter_mode \
+  --randomsequentialsampler \
