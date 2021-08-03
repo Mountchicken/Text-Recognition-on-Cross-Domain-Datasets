@@ -177,24 +177,34 @@ bash scripts/CRNN/CASIA_HWDB/test.sh
 bash scripts/ASTER/scene_text/test.sh
 ```
 # Inferrence
-## 7.1 Inferrence CRNN on Scene Text
+## 7.1 CRNN
+### 7.1.1 Inferrence CRNN on Scene Text
 - DownLoad Pretrained Checkpoints, [CRNN on STR, Checkpoints(提取码:o4mb)](https://pan.baidu.com/s/1aHiU1mDvYD5gs2G9Zr3JjQ)
 - modify `scripts/CRNN/scene_text/inferrence.sh`. Set up image_path and resume for the checkpoint
 - run 
 ```Bash
 bash scripts/CRNN/scene_text/inferrence.sh
 ```
-## 7.2 Inferrence CRNN on IAM dataset
+### 7.2 Inferrence CRNN on IAM dataset
 - DownLoad Pretrained Checkpoints, [CRNN on IAM, Checkpoints(提取码:3ajw)](https://pan.baidu.com/s/1_XUzvqgDy4HtRv2F6N34og)
 - modify `scripts/CRNN/iam_dataset/inferrence.sh`. Set up image_path and resume for the checkpoint
 - run 
 ```Bash
 bash scripts/CRNN/iam_dataset/inferrence.sh
 ```
-## 7.3 Inferrence CRNN on CASIA_HWDB dataset
+### 7.3 Inferrence CRNN on CASIA_HWDB dataset
 - DownLoad Pretrained Checkpoints, [CRNN on CASIA_HWDB, Checkpoints(提取码:ujpy)](https://pan.baidu.com/s/1AfWdvW9ShS09BIiBTIpa4Q)
 - modify `scripts/CRNN/CASIA_HWDB/inferrence.sh`. Set up image_path and resume for the checkpoint
 - run 
 ```Bash
 bash scripts/CRNN/CASIA_HWDB/inferrence.sh
+```
+****
+## 7.2 ASTER
+### 7.2.1 Inferrence ASTER on Scene Text
+- DownLoad Pretrained Checkpoints, [ASTER on STR, Checkpoints(提取码:mcc9)](https://pan.baidu.com/s/1jMfLwRJrcfk7IQ5_NDw3-g)
+- modify `scripts/ASTER/scene_text/inferrence.sh`. Set up image_path and resume for the checkpoint
+- run 
+```Bash
+bash scripts/ASTER/scene_text/inferrence.sh
 ```
