@@ -20,7 +20,7 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
 |Datasets|[Multible datasets in lmdb form](#Datasets)|
 |Alogrithms|[CRNN](#Algorithms)|
 ||[ASTER](#ASTER)|
-|Train|[Train](#Train)|
+|Train|[Train](##ASTER)|
 |Test|[Test](#Test)|
 |Inferrence|[Inferrence](#Inferrence)|
 ****
@@ -111,7 +111,7 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
 
 ****
 # Train
-## 5.1 Train CRNN
+## 5.1 CRNN
 ### 5.1.1 Train CRNN on Scene Text
 - modify `scripts/CRNN/scene_text/train.sh`. Set up training set path and evaluation set path.
 - run 
@@ -137,7 +137,7 @@ bash scripts/CRNN/iam_dataset/train.sh
 bash scripts/CRNN/CASIA_HWDB/train.sh
 ```
 ****
-## 5.2 Train ASTER
+## 5.2 ASTER
 ### 5.1.1 Train CRNN on Scene Text
 - modify `scripts/ASTER/scene_text/train.sh`. Set up training set path and evaluation set path.
 - run 
