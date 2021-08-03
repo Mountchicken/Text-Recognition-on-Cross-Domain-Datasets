@@ -109,12 +109,11 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
 |![2](./github_images/ASTER_scene2.png)|FOOTBALL|'FOOTBALL'|
 |![3](./github_images/ASTER_scene3.png)|BURTON|'BURTON'|
 
-- note that we only predict 0-9, a-z. No upper case and punctuations. If you want to predict them, you can modify the code
 ****
 # Train
 ## 5.1 Train CRNN
 ### 5.1.1 Train CRNN on Scene Text
-- modify `scripts/scene_text/train.sh`. Set up training set path and evaluation set path.
+- modify `scripts/CRNN/scene_text/train.sh`. Set up training set path and evaluation set path.
 - run 
 ```Bash
 bash scripts/scene_text/train.sh
@@ -126,59 +125,76 @@ or
 -- alphabets 0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~ \
 ```
 ### 5.1.2 Train CRNN on IAM dataset
-- modify `scripts/iam_dataset/train.sh`. Set up training set path and evaluation set path.
+- modify `scripts/CRNN/iam_dataset/train.sh`. Set up training set path and evaluation set path.
 - run 
 ```Bash
-bash scripts/iam_dataset/train.sh
+bash scripts/CRNN/iam_dataset/train.sh
 ```
 ### 5.1.3 Train CRNN on CASIA_HWDB dataset
-- modify `scripts/CASIA_HWDB/train.sh`. Set up training set path and evaluation set path.
+- modify `scripts/CRNN/CASIA_HWDB/train.sh`. Set up training set path and evaluation set path.
 - run 
 ```Bash
-bash scripts/CASIA_HWDB/train.sh
+bash scripts/CRNN/CASIA_HWDB/train.sh
 ```
+****
+## 5.2 Train ASTER
+### 5.1.1 Train CRNN on Scene Text
+- modify `scripts/ASTER/scene_text/train.sh`. Set up training set path and evaluation set path.
+- run 
+```Bash
+bash scripts//ASTER/scene_text/train.sh
+```
+
 # Test
 ## 6.1 Test CRNN
 ### 6.1.1 Test CRNN on Scene Text
 - DownLoad Pretrained Checkpoints, [CRNN on STR, Checkpoints(提取码:axf7)](https://pan.baidu.com/s/1Ik6d9aiN8HFCe57pha0Gsg)
-- modify `scripts/scene_text/test.sh`. Set up test_data_dir and resume for the checkpoint
+- modify `scripts/CRNN/scene_text/test.sh`. Set up test_data_dir and resume for the checkpoint
 - run 
 ```Bash
-bash scripts/scene_text/test.sh
+bash scripts/CRNN/scene_text/test.sh
 ```
 ### 6.1.2 Test CRNN on IAM dataset
 - DownLoad Pretrained Checkpoints, [CRNN on IAM, Checkpoints(提取码:3ajw)](https://pan.baidu.com/s/1_XUzvqgDy4HtRv2F6N34og)
-- modify `scripts/iam_dataset/test.sh`. Set up test_data_dir and resume for the checkpoint
+- modify `scripts/CRNN/iam_dataset/test.sh`. Set up test_data_dir and resume for the checkpoint
 - run 
 ```Bash
-bash scripts/iam_dataset/test.sh
+bash scripts/CRNN/iam_dataset/test.sh
 ```
 ### 6.1.3 Test CRNN on CASIA_HWDB dataset
 - DownLoad Pretrained Checkpoints, [CRNN on CASIA_HWDB, Checkpoints(提取码:ujpy)](https://pan.baidu.com/s/1AfWdvW9ShS09BIiBTIpa4Q)
-- modify `scripts/CASIA_HWDB/test.sh`. Set up test_data_dir and resume for the checkpoint
+- modify `scripts/CRNN/CASIA_HWDB/test.sh`. Set up test_data_dir and resume for the checkpoint
 - run 
 ```Bash
-bash scripts/CASIA_HWDB/test.sh
+bash scripts/CRNN/CASIA_HWDB/test.sh
+```
+## 6.2 Test ASTER
+### 6.1.1 Test ASTER on Scene Text
+- DownLoad Pretrained Checkpoints, [ASTER on STR, Checkpoints(提取码:mcc9)](https://pan.baidu.com/s/1jMfLwRJrcfk7IQ5_NDw3-g)
+- modify `scripts/ASTER/scene_text/test.sh`. Set up test_data_dir and resume for the checkpoint
+- run 
+```Bash
+bash scripts/ASTER/scene_text/test.sh
 ```
 # Inferrence
 ## 7.1 Inferrence CRNN on Scene Text
 - DownLoad Pretrained Checkpoints, [CRNN on STR, Checkpoints(提取码:o4mb)](https://pan.baidu.com/s/1aHiU1mDvYD5gs2G9Zr3JjQ)
-- modify `scripts/scene_text/inferrence.sh`. Set up image_path and resume for the checkpoint
+- modify `scripts/CRNN/scene_text/inferrence.sh`. Set up image_path and resume for the checkpoint
 - run 
 ```Bash
-bash scripts/scene_text/inferrence.sh
+bash scripts/CRNN/scene_text/inferrence.sh
 ```
 ## 7.2 Inferrence CRNN on IAM dataset
 - DownLoad Pretrained Checkpoints, [CRNN on IAM, Checkpoints(提取码:3ajw)](https://pan.baidu.com/s/1_XUzvqgDy4HtRv2F6N34og)
-- modify `scripts/iam_dataset/inferrence.sh`. Set up image_path and resume for the checkpoint
+- modify `scripts/CRNN/iam_dataset/inferrence.sh`. Set up image_path and resume for the checkpoint
 - run 
 ```Bash
-bash scripts/iam_dataset/inferrence.sh
+bash scripts/CRNN/iam_dataset/inferrence.sh
 ```
 ## 7.3 Inferrence CRNN on CASIA_HWDB dataset
 - DownLoad Pretrained Checkpoints, [CRNN on CASIA_HWDB, Checkpoints(提取码:ujpy)](https://pan.baidu.com/s/1AfWdvW9ShS09BIiBTIpa4Q)
-- modify `scripts/CASIA_HWDB/inferrence.sh`. Set up image_path and resume for the checkpoint
+- modify `scripts/CRNN/CASIA_HWDB/inferrence.sh`. Set up image_path and resume for the checkpoint
 - run 
 ```Bash
-bash scripts/CASIA_HWDB/inferrence.sh
+bash scripts/CRNN/CASIA_HWDB/inferrence.sh
 ```
