@@ -97,7 +97,7 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
 - ASTER is a classic text recognition algorithms with a **TPS rectification network** and **attention decoder**.
 
 |#|IIIT5K|SVT|IC03|IC13|SVTP|CUTE|
-|----|----|----|----|----|----|----|----|
+|----|----|----|----|----|----|----|
 |ASTER(reimplemented)|**92.9**|88.1|91.2|88.6|**78.3**|**78.5**|
 |ASTER(original)|91.93|**88.76**|**93.49**|**89.75**|74.11|73.26|
 
