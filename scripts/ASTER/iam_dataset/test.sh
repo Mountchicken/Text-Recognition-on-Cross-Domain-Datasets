@@ -14,4 +14,4 @@ CUDA_VISIBLE_DEVICES=0,1 python new_main.py \
   --evaluate \
   --evaluation_metric word_accuracy \
   --alphabets allcases \
-  --resume runs/train/exp84/weights/model_best.pth.tar
+  --resume runs/best_model/ASTER/iam_dataset/model_best.pth.tar
