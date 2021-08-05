@@ -7,9 +7,10 @@ This is an experimental project, and the framework is changed every time i uploa
 # Update🙂🙂
 |Date|Description|
 |----|----|
-|7/30|Checkpoint on IAM dataset has been released. You can test your English handwritten now|
-|7/31|Checkpoint on CASIA-HWDB2.x has been released. You can test your Chinese handwritten now|
+|7/30|Checkpoint for CRNN on IAM dataset has been released. You can test your English handwritten now|
+|7/31|Checkpoint for CRNN on CASIA-HWDB2.x has been released. You can test your Chinese handwritten now|
 |8/3|New Algorithms! ASTER is reimplemented here and checkpoint for scene text recognition is released|
+|8/5|Checkpoint for ASTER on IAM dataset has beem released. It's much more accurate than CRNN due to attention model's implicit semantic information. You should not miss it😃|
 ****
 # 1. Welcome!😃😃
 Now I'm focusing on a project to build a general ocr systems which can recognize different text domains. From scene text, hand written, document, chinese, english to even ancient books like confucian classics. So far I don't have a clear idea about how to do it, but let's just do it step by step. This repository is suitable for greens who are interesed in text recognition(I am a green too😂).
@@ -93,7 +94,7 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
 - Chinese handwritten are sufferd from imbalanced words contribution. So sometimes it's hard to recognize some rare words 
 ****
 ## 4.2 ASTER
-### 4.1.1 On Scene Text
+### 4.2.1 On Scene Text
 - ASTER is a classic text recognition algorithms with a **TPS rectification network** and **attention decoder**.
 
 |#|IIIT5K|SVT|IC03|IC13|SVTP|CUTE|
@@ -109,6 +110,22 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
 |![2](./github_images/ASTER_scene2.png)|FOOTBALL|'FOOTBALL'|
 |![3](./github_images/ASTER_scene3.png)|BURTON|'BURTON'|
 
+****
+### 4.2.1 On Handwritten
+- Relative experiments are conducted on IAM dataset and CASIA-HWDB
+
+|Dataset|Word Accuracy|
+|----|----|
+|IAM(line level)|69.8|
+|CASIA-HWDB2.0-2.2|The model fails to convergence and I am still training|
+
+- Some recognion results
+
+|Image|GT|Prediction|
+|----|----|----|
+|![1](./github_images/iam1.jpg)|Coldplay is my favorate band|'Coldplay is my favorate band'|
+|![2](./github_images/iam3.jpg)|Night gathers and now my watch begins|'Night gathers and now my watch begins'|
+|![3](./github_images/iam4.jpg)|You konw nothing John Snow|'You konw nothing John snow'|
 ****
 # Train
 ## 5.1 CRNN
