@@ -155,13 +155,18 @@ bash scripts/CRNN/CASIA_HWDB/train.sh
 ```
 ****
 ## 5.2 ASTER
-### 5.1.1 Train CRNN on Scene Text
+### 5.1.1 Train ASTER on Scene Text
 - modify `scripts/ASTER/scene_text/train.sh`. Set up training set path and evaluation set path.
 - run 
 ```Bash
 bash scripts//ASTER/scene_text/train.sh
 ```
-
+### 5.12 Train ASTER on IAM dataset
+- modify `scripts/ASTER/iam_dataset/train.sh`. Set up training set path and evaluation set path.
+- run 
+```Bash
+bash scripts//ASTER/iam_dataset/train.sh
+```
 # Test
 ## 6.1 Test CRNN
 ### 6.1.1 Test CRNN on Scene Text
@@ -193,6 +198,13 @@ bash scripts/CRNN/CASIA_HWDB/test.sh
 ```Bash
 bash scripts/ASTER/scene_text/test.sh
 ```
+### 6.1.2 Test ASTER on IAM dataset
+- DownLoad Pretrained Checkpoints, [ASTER on IAM, Checkpoints(提取码:mqqm)](https://pan.baidu.com/s/1CwxJFKDziZu1dlJCe1gHPg)
+- modify `scripts/ASTER/iam_dataset/test.sh`. Set up test_data_dir and resume for the checkpoint
+- run 
+```Bash
+bash scripts/ASTER/iam_dataset/test.sh
+```
 # Inferrence
 ## 7.1 CRNN
 ### 7.1.1 Inferrence CRNN on Scene Text
@@ -202,14 +214,14 @@ bash scripts/ASTER/scene_text/test.sh
 ```Bash
 bash scripts/CRNN/scene_text/inferrence.sh
 ```
-### 7.2 Inferrence CRNN on IAM dataset
+### 7.1.2 Inferrence CRNN on IAM dataset
 - DownLoad Pretrained Checkpoints, [CRNN on IAM, Checkpoints(提取码:3ajw)](https://pan.baidu.com/s/1_XUzvqgDy4HtRv2F6N34og)
 - modify `scripts/CRNN/iam_dataset/inferrence.sh`. Set up image_path and resume for the checkpoint
 - run 
 ```Bash
 bash scripts/CRNN/iam_dataset/inferrence.sh
 ```
-### 7.3 Inferrence CRNN on CASIA_HWDB dataset
+### 7.1.3 Inferrence CRNN on CASIA_HWDB dataset
 - DownLoad Pretrained Checkpoints, [CRNN on CASIA_HWDB, Checkpoints(提取码:ujpy)](https://pan.baidu.com/s/1AfWdvW9ShS09BIiBTIpa4Q)
 - modify `scripts/CRNN/CASIA_HWDB/inferrence.sh`. Set up image_path and resume for the checkpoint
 - run 
@@ -224,4 +236,11 @@ bash scripts/CRNN/CASIA_HWDB/inferrence.sh
 - run 
 ```Bash
 bash scripts/ASTER/scene_text/inferrence.sh
+```
+### 7.1.2 Inferrence ASTER on IAM dataset
+- DownLoad Pretrained Checkpoints, [ASTER on IAM, Checkpoints(提取码:mqqm)](https://pan.baidu.com/s/1CwxJFKDziZu1dlJCe1gHPg)
+- modify `scripts/ASTEriam_dataset/inferrence.sh`. Set up image_path and resume for the checkpoint
+- run 
+```Bash
+bash scripts/ASTER/iam_dataset/inferrence.sh
 ```
