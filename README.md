@@ -1,5 +1,5 @@
 # Text Recognition on Cross Domain Datasets
-Improved CRNN on different text domains like scene text, hand written, document, chinese/english, even ancient books
+Improved CRNN,ASTER,DAN on different text domains like scene text, hand written, document, chinese/english, even ancient books
 
 # ATTENTION 😮❗😮❗😮❗
 This is an experimental project, and the framework is changed every time i uploaded.(Sorry for my mess. I should progame this in a more structured way). Any way, you have to redownload this project every time I uploaded it. So that you can successfully run the code. Thanks for your Attention.🙇‍♂️🙇‍♂️
