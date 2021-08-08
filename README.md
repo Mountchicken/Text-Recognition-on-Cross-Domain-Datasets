@@ -146,10 +146,10 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
 |Image|Prediction|
 |----|----|
 |![1](./github_images/ta1.jpg)|'I have seen things you people would not believe lift'|
-|![2](./github_images/ta3.jpg)|'Attack ships on fire off the shoulder of Orien'|
-|![3](./github_images/ta4.jpg)|'I have watch  bearans gitter in the does near the Tarhouser'|
+|![2](./github_images/ta2.jpg)|'Attack ships on fire off the shoulder of Orien'|
+|![3](./github_images/ta3.jpg)|'I have watch  bearans gitter in the does near the Tarhouser'|
 |![4](./github_images/ta4.jpg)|'All those moments will be lost in time'|
-|![5](./github_images/ta4.jpg)|'like tears in the rain'|
+|![5](./github_images/ta5.jpg)|'like tears in the rain'|
 ****
 # Train
 ## 5.1 CRNN
