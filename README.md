@@ -11,6 +11,7 @@ This is an experimental project, and the framework is changed every time i uploa
 |7/31|Checkpoint for CRNN on CASIA-HWDB2.x has been released. You can test your Chinese handwritten now|
 |8/3|New Algorithms! ASTER is reimplemented here and checkpoint for scene text recognition is released|
 |8/5|Checkpoint for ASTER on IAM dataset has beem released. It's much more accurate than CRNN due to attention model's implicit semantic information. You should not miss it😃|
+|8/8|New Algorithms! DAN(Decoupled attention network) is reimplented. checkpoint forb both scene text and iam dataset are realesed|
 ****
 # 1. Welcome!😃😃
 Now I'm focusing on a project to build a general ocr systems which can recognize different text domains. From scene text, hand written, document, chinese, english to even ancient books like confucian classics. So far I don't have a clear idea about how to do it, but let's just do it step by step. This repository is suitable for greens who are interesed in text recognition(I am a green too😂).
@@ -21,6 +22,7 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
 |Datasets|[Multible datasets in lmdb form](#Datasets)|
 |Alogrithms|[CRNN](#Algorithms)|
 ||[ASTER](#ASTER)|
+||[DAN](#DAN)|
 |Train|[Train](#Train)|
 |Test|[Test](#Test)|
 |Inferrence|[Inferrence](#Inferrence)|
@@ -111,7 +113,7 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
 |![3](./github_images/ASTER_scene3.png)|BURTON|'BURTON'|
 
 ****
-### 4.2.1 On Handwritten
+### 4.2.2 On Handwritten
 - Relative experiments are conducted on IAM dataset and CASIA-HWDB
 
 |Dataset|Word Accuracy|
@@ -126,6 +128,28 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
 |![1](./github_images/iam1.jpg)|Coldplay is my favorate band|'Coldplay is my favorate band'|
 |![2](./github_images/iam3.jpg)|Night gathers and now my watch begins|'Night gathers and now my watch begins'|
 |![3](./github_images/iam4.jpg)|You konw nothing John Snow|'You konw nothing John snow'|
+****
+****
+## 4.3 DAN
+### 4.3.1 On Scene Text
+
+### 4.3.2 On Handwritten
+- Relative experiments are conducted on IAM dataset and CASIA-HWDB
+
+|Dataset|Word Accuracy|
+|----|----|
+|IAM(line level)|74.0|
+|CASIA-HWDB2.0-2.2||
+
+- Some recognion results
+
+|Image|Prediction|
+|----|----|----|
+|![1](./github_images/ta1.jpg)|'I have seen things you people would not believe lift'|
+|![2](./github_images/ta3.jpg)|'Attack ships on fire off the shoulder of Orien'|
+|![3](./github_images/ta4.jpg)|'I have watch  bearans gitter in the does near the Tarhouser'|
+|![4](./github_images/ta4.jpg)|'All those moments will be lost in time'|
+|![5](./github_images/ta4.jpg)|'like tears in the rain'|
 ****
 # Train
 ## 5.1 CRNN
