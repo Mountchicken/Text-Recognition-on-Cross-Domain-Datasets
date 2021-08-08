@@ -144,7 +144,7 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
 - Some recognion results
 
 |Image|Prediction|
-|----|----|----|
+|----|----|
 |![1](./github_images/ta1.jpg)|'I have seen things you people would not believe lift'|
 |![2](./github_images/ta3.jpg)|'Attack ships on fire off the shoulder of Orien'|
 |![3](./github_images/ta4.jpg)|'I have watch  bearans gitter in the does near the Tarhouser'|
