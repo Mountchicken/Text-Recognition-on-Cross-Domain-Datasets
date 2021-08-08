@@ -1,0 +1,14 @@
+CUDA_VISIBLE_DEVICES=0,1 python new_main.py \
+  --test_data_dir ../text_recognition_datasets/CASIA_HWDB2022/HWDB2_1test \
+  --batch_size 32 \
+  --height 192 \
+  --width 2048 \
+  --max_len 128 \
+  --arch ResNet_IAM \
+  --decode_type CTC \
+  --with_lstm \
+  --evaluate \
+  --resume runs/best_model/CRNN/CASIA/model_best.pth.tar \
+  --padresize \
+  --evaluation_metric word_accuracy \
+  --alphabets casia_360cc \

@@ -1,0 +1,17 @@
+CUDA_VISIBLE_DEVICES=0,1 python new_main.py \
+  --test_data_dir ../text_recognition_datasets/hand_written/lines_youkonge/te \
+  --batch_size 128 \
+   --batch_size 32 \
+  --workers 4 \
+  --arch ResNet_IAM \
+  --decode_type Attention \
+  --with_lstm \
+  --height 192 \
+  --width 2048 \
+  --max_len 128 \
+  --punc \
+  --padresize \
+  --evaluate \
+  --evaluation_metric word_accuracy \
+  --alphabets allcases \
+  --resume runs/best_model/ASTER/iam_dataset/model_best.pth.tar

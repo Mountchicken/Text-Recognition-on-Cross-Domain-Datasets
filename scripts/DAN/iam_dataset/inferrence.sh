@@ -1,0 +1,12 @@
+CUDA_VISIBLE_DEVICES=0,1 python inferrence.py \
+  --image_path test_images/ta5.jpg \
+  --height 192 \
+  --width 2048 \
+  --arch IAM \
+  --decode_type DAN \
+  --max_len 128 \
+  --alphabets allcases \
+  --punc \
+  --padresize \
+  --evaluate \
+  --resume runs/train/exp53/weights/model_best.pth.tar \

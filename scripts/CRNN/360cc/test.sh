@@ -1,0 +1,14 @@
+CUDA_VISIBLE_DEVICES=0,1 python new_main.py \
+  --test_data_dir ../text_recognition_datasets/360wchinese/360cc_test_lmdb \
+  --batch_size 512 \
+  --workers 0 \
+  --height 32 \
+  --width 280 \
+  --max_len 70 \
+  --arch ResNet_Scene \
+  --decode_type CTC \
+  --with_lstm \
+  --evaluate \
+  --resume runs/best_model/360cc/model_best.pth.tar \
+  --evaluation_metric accuracy \
+  --alphabets casia_360cc \

@@ -1,0 +1,18 @@
+CUDA_VISIBLE_DEVICES=0,1 python new_main.py \
+  --synthetic_train_data_dir ../text_recognition_datasets/hand_written/lines_youkonge/all \
+  --test_data_dir ../text_recognition_datasets/hand_written/lines_youkonge/te \
+  --batch_size 32 \
+  --workers 2 \
+  --height 192 \
+  --width 2048 \
+  --arch IAM \
+  --decode_type DAN \
+  --max_len 128 \
+  --epochs 150 \
+  --alphabets allcases \
+  --punc \
+  --padresize \
+  --lr 3e-4 \
+  --stepLR  70 110 130\
+  --augmentation \
+  --evaluation_metric word_accuracy \

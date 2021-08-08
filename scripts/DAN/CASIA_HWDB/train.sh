@@ -1,0 +1,16 @@
+CUDA_VISIBLE_DEVICES=0,1 python new_main.py \
+  --synthetic_train_data_dir ../text_recognition_datasets/CASIA_HWDB2022/HWDB2_0train ../text_recognition_datasets/CASIA_HWDB2022/HWDB2_1train ../text_recognition_datasets/CASIA_HWDB2022/HWDB2_2train \
+  --test_data_dir ../text_recognition_datasets/CASIA_HWDB2022/HWDB2_1test \
+  --batch_size 32 \
+  --workers 2 \
+  --height 192 \
+  --width 2048 \
+  --arch IAM \
+  --decode_type DAN \
+  --max_len 128 \
+  --epochs 150 \
+  --alphabets casia_360cc \
+  --padresize \
+  --lr 3e-3 \
+  --stepLR  70 110 130\
+  --evaluation_metric word_accuracy \

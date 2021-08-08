@@ -1,0 +1,19 @@
+CUDA_VISIBLE_DEVICES=0,1 python new_main.py \
+  --test_data_dir ../text_recognition_datasets/scene_text_benchmarks/cute80_288 \
+  --batch_size 256 \
+  --workers 0 \
+  --height 64 \
+  --width 256 \
+  --alphabets allcases_symbols \
+  --arch ResNet_Scene \
+  --decode_type Attention \
+  --with_lstm \
+  --max_len 50 \
+  --tps_inputsize 32 64 \
+  --tps_outputsize 32 100 \
+  --tps_margins 0.05 0.05 \
+  --stn_activation none \
+  --num_control_points 20 \
+  --evaluation_metric accuracy \
+  --evaluate \
+  --resume runs/best_model/ASTER/scene/model_best.pth.tar \

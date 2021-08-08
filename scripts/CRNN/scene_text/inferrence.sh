@@ -1,0 +1,11 @@
+CUDA_VISIBLE_DEVICES=0,1 python inferrence.py \
+  --image_path test_images/1.png \
+  --arch ResNet_Scene \
+  --decode_type CTC \
+  --with_lstm \
+  --height 32 \
+  --width 100 \
+  --max_len 25 \
+  --lower \
+  --resume runs/best_model/CRNN/scene/model_best.pth.tar \
+  --alphabets lowercase\
