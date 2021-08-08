@@ -179,18 +179,28 @@ bash scripts/CRNN/CASIA_HWDB/train.sh
 ```
 ****
 ## 5.2 ASTER
-### 5.1.1 Train ASTER on Scene Text
+### 5.2.1 Train ASTER on Scene Text
 - modify `scripts/ASTER/scene_text/train.sh`. Set up training set path and evaluation set path.
 - run 
 ```Bash
 bash scripts//ASTER/scene_text/train.sh
 ```
-### 5.12 Train ASTER on IAM dataset
+### 5.2.2 Train ASTER on IAM dataset
 - modify `scripts/ASTER/iam_dataset/train.sh`. Set up training set path and evaluation set path.
 - run 
 ```Bash
 bash scripts//ASTER/iam_dataset/train.sh
 ```
+****
+## 5.3 DAN
+### 5.3.1 Train DAN on Scene Text
+### 5.3.2 Train DAN on IAM dataset
+- modify `scripts/DAN/iam_dataset/train.sh`. Set up training set path and evaluation set path.
+- run 
+```Bash
+bash scripts//DAN/iam_dataset/train.sh
+```
+****
 # Test
 ## 6.1 Test CRNN
 ### 6.1.1 Test CRNN on Scene Text
@@ -215,15 +225,24 @@ bash scripts/CRNN/iam_dataset/test.sh
 bash scripts/CRNN/CASIA_HWDB/test.sh
 ```
 ## 6.2 Test ASTER
-### 6.1.1 Test ASTER on Scene Text
+### 6.2.1 Test ASTER on Scene Text
 - DownLoad Pretrained Checkpoints, [ASTER on STR, Checkpoints(提取码:mcc9)](https://pan.baidu.com/s/1jMfLwRJrcfk7IQ5_NDw3-g)
 - modify `scripts/ASTER/scene_text/test.sh`. Set up test_data_dir and resume for the checkpoint
 - run 
 ```Bash
 bash scripts/ASTER/scene_text/test.sh
 ```
-### 6.1.2 Test ASTER on IAM dataset
+### 6.2.2 Test ASTER on IAM dataset
 - DownLoad Pretrained Checkpoints, [ASTER on IAM, Checkpoints(提取码:mqqm)](https://pan.baidu.com/s/1CwxJFKDziZu1dlJCe1gHPg)
+- modify `scripts/ASTER/iam_dataset/test.sh`. Set up test_data_dir and resume for the checkpoint
+- run 
+```Bash
+bash scripts/ASTER/iam_dataset/test.sh
+```
+## 6.3 Test DAN
+### 6.3.1 Test DAN on Scene Text
+### 6.3.2 Test DAN on IAM dataset
+- DownLoad Pretrained Checkpoints, [DAN on IAM, Checkpoints(提取码:h7vp)](https://pan.baidu.com/s/1lxc3R31AKLyZ_xf_ltiFZA)
 - modify `scripts/ASTER/iam_dataset/test.sh`. Set up test_data_dir and resume for the checkpoint
 - run 
 ```Bash
@@ -268,3 +287,14 @@ bash scripts/ASTER/scene_text/inferrence.sh
 ```Bash
 bash scripts/ASTER/iam_dataset/inferrence.sh
 ```
+****
+## 7.3 DAN
+### 7.2.1 Inferrence DAN on Scene Text
+### 7.1.2 Inferrence DAN on IAM dataset
+- DownLoad Pretrained Checkpoints, [DAN on IAM, Checkpoints(提取码:h7vp)](https://pan.baidu.com/s/1lxc3R31AKLyZ_xf_ltiFZA)
+- modify `scripts/ASTEriam_dataset/inferrence.sh`. Set up image_path and resume for the checkpoint
+- run 
+```Bash
+bash scripts/ASTER/iam_dataset/inferrence.sh
+```
+
