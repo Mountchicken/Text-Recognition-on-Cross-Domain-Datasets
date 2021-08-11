@@ -12,6 +12,7 @@ This is an experimental project, and the framework is changed every time i uploa
 |8/3|New Algorithms! ASTER is reimplemented here and checkpoint for scene text recognition is released|
 |8/5|Checkpoint for ASTER on IAM dataset has beem released. It's much more accurate than CRNN due to attention model's implicit semantic information. You should not miss it😃|
 |8/8|New Algorithms! DAN(Decoupled attention network) is reimplented. checkpoint forb both scene text and iam dataset are realesed|
+|8/11|New Algorithms! ACE(Aggratation Cross-Entropy). It's a new loss function to handle text recognition task. Like CTC and Attention|
 ****
 # 1. Welcome!😃😃
 Now I'm focusing on a project to build a general ocr systems which can recognize different text domains. From scene text, hand written, document, chinese, english to even ancient books like confucian classics. So far I don't have a clear idea about how to do it, but let's just do it step by step. This repository is suitable for greens who are interesed in text recognition(I am a green too😂).
@@ -19,13 +20,13 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
 # 2. Contents👨‍💻👨‍💻
 |Part|Description|
 |----|----|
-|Datasets|[Multible datasets in lmdb form](#Datasets)|
-|Alogrithms|[CRNN](#Algorithms)|
-||[ASTER](#ASTER)|
-||[DAN](#DAN)|
-|Train|[Train](#Train)|
-|Test|[Test](#Test)|
-|Inferrence|[Inferrence](#Inferrence)|
+|Datasets|[Multible datasets in lmdb form](#datasets)|
+|Alogrithms|[CRNN](#71-crnn)|
+||[ASTER](#72-aster)|
+||[DAN](#43-dan)|
+||[ACE]()|
+|How to use|[Use](#how-to-use)|
+|Checkpoints|[CheckPoints](#checkpoints)|
 ****
 # Datasets
 ## 3.1 Scene Text Recognitons
@@ -99,10 +100,10 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
 ### 4.2.1 On Scene Text
 - ASTER is a classic text recognition algorithms with a **TPS rectification network** and **attention decoder**.
 
-|#|IIIT5K|SVT|IC03|IC13|SVTP|CUTE|
-|----|----|----|----|----|----|----|
-|ASTER(reimplemented)|**92.9**|88.1|91.2|88.6|**78.3**|**78.5**|
-|ASTER(original)|91.93|**88.76**|**93.49**|**89.75**|74.11|73.26|
+|#|IIIT5K|SVT|IC03|IC13|IC15|SVTP|CUTE|
+|----|----|----|----|----|----|----|----|
+|ASTER(reimplemented)|**92.9**|88.1|91.2|88.6|75.9|**78.3**|**78.5**|
+|ASTER(original)|91.93|**88.76**|**93.49**|**89.75**|#|74.11|73.26|
 
 - Some recognion results
 
@@ -130,8 +131,13 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
 |![3](./github_images/iam4.jpg)|You konw nothing John Snow|'You konw nothing John snow'|
 ****
 ****
-## 4.3 DAN
+## DAN
 ### 4.3.1 On Scene Text
+
+|#|IIIT5K|SVT|IC03|IC13|IC15|SVTP|CUTE|
+|----|----|----|----|----|----|----|----|
+|DAN1D(reimplemented)|78.5|75.6|84.7|78.8|61.5|59.7|63.2|
+|DAN1D(original)|**91.93**|**82.3**|**82.6**|**92.1**|**89.7**|#|#|#|
 
 ### 4.3.2 On Handwritten
 - Relative experiments are conducted on IAM dataset and CASIA-HWDB
@@ -151,150 +157,80 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
 |![4](./github_images/ta4.jpg)|'All those moments will be lost in time'|
 |![5](./github_images/ta5.jpg)|'like tears in the rain'|
 ****
-# Train
-## 5.1 CRNN
-### 5.1.1 Train CRNN on Scene Text
-- modify `scripts/CRNN/scene_text/train.sh`. Set up training set path and evaluation set path.
-- run 
+## ACE
+### 4.4.1 On Scene Text
+- ACE is simple yet effective loss funciton. However, there is still a huge gap with CTC and Attention 
+  
+|#|IIIT5K|SVT|IC03|IC13|IC15|SVTP|CUTE|
+|----|----|----|----|----|----|----|----|
+|ACE(reimplemented)|78.5|75.6|84.7|78.8|61.5|59.7|63.2|
+|ACE(original)|**91.93**|**82.3**|**82.6**|**92.1**|**89.7**|#|#|#|
+
+
+# How to use
+- It's easy to start the training process. Firstly you need to download the datasets
+ required.
+- Check the root
+```
+  scripts--
+     ACE--
+        CASIA_HWDB--
+            train.sh
+            test.sh
+            inferrence.sh 
+        iam_dataset--
+            train.sh
+            test.sh
+            inferrence.sh
+        scene_text--
+            train.sh
+            test.sh
+            inferrence.sh
+     ASTER--
+        ...
+     CRNN --
+        ...
+     DAB  --
+        ...
+```
+- let's say you want to train ACE on Scene text. Change the training and testing dataset path in `scripts/ACE/scene_text/train.sh`(The first two rows).
+- run
 ```Bash
-bash scripts/scene_text/train.sh
+bash scripts/ACE/scene_text/train.sh
 ```
-- If you want to predict more characters, add a line in `scripts/train.sh`
- ```Bash
--- alphabets 0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ \
-or
--- alphabets 0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~ \
-```
-### 5.1.2 Train CRNN on IAM dataset
-- modify `scripts/CRNN/iam_dataset/train.sh`. Set up training set path and evaluation set path.
-- run 
+- If you want to test the accuracy, follow the same step as training. Also, you need to set up the resume parameter in .sh. It's where the checkpoint is 
+- run
 ```Bash
-bash scripts/CRNN/iam_dataset/train.sh
+bash scripts/ACE/scene_text/test.sh
 ```
-### 5.1.3 Train CRNN on CASIA_HWDB dataset
-- modify `scripts/CRNN/CASIA_HWDB/train.sh`. Set up training set path and evaluation set path.
-- run 
+- To test a single image. Change the image path in corresponding .sh and the resume path
+- then run
 ```Bash
-bash scripts/CRNN/CASIA_HWDB/train.sh
+bash scripts/ACE/scene_text/inferrence.sh
 ```
-****
-## 5.2 ASTER
-### 5.2.1 Train ASTER on Scene Text
-- modify `scripts/ASTER/scene_text/train.sh`. Set up training set path and evaluation set path.
-- run 
-```Bash
-bash scripts//ASTER/scene_text/train.sh
-```
-### 5.2.2 Train ASTER on IAM dataset
-- modify `scripts/ASTER/iam_dataset/train.sh`. Set up training set path and evaluation set path.
-- run 
-```Bash
-bash scripts//ASTER/iam_dataset/train.sh
-```
-****
-## 5.3 DAN
-### 5.3.1 Train DAN on Scene Text
-### 5.3.2 Train DAN on IAM dataset
-- modify `scripts/DAN/iam_dataset/train.sh`. Set up training set path and evaluation set path.
-- run 
-```Bash
-bash scripts//DAN/iam_dataset/train.sh
-```
-****
-# Test
-## 6.1 Test CRNN
-### 6.1.1 Test CRNN on Scene Text
-- DownLoad Pretrained Checkpoints, [CRNN on STR, Checkpoints(提取码:axf7)](https://pan.baidu.com/s/1Ik6d9aiN8HFCe57pha0Gsg)
-- modify `scripts/CRNN/scene_text/test.sh`. Set up test_data_dir and resume for the checkpoint
-- run 
-```Bash
-bash scripts/CRNN/scene_text/test.sh
-```
-### 6.1.2 Test CRNN on IAM dataset
-- DownLoad Pretrained Checkpoints, [CRNN on IAM, Checkpoints(提取码:3ajw)](https://pan.baidu.com/s/1_XUzvqgDy4HtRv2F6N34og)
-- modify `scripts/CRNN/iam_dataset/test.sh`. Set up test_data_dir and resume for the checkpoint
-- run 
-```Bash
-bash scripts/CRNN/iam_dataset/test.sh
-```
-### 6.1.3 Test CRNN on CASIA_HWDB dataset
-- DownLoad Pretrained Checkpoints, [CRNN on CASIA_HWDB, Checkpoints(提取码:ujpy)](https://pan.baidu.com/s/1AfWdvW9ShS09BIiBTIpa4Q)
-- modify `scripts/CRNN/CASIA_HWDB/test.sh`. Set up test_data_dir and resume for the checkpoint
-- run 
-```Bash
-bash scripts/CRNN/CASIA_HWDB/test.sh
-```
-## 6.2 Test ASTER
-### 6.2.1 Test ASTER on Scene Text
-- DownLoad Pretrained Checkpoints, [ASTER on STR, Checkpoints(提取码:mcc9)](https://pan.baidu.com/s/1jMfLwRJrcfk7IQ5_NDw3-g)
-- modify `scripts/ASTER/scene_text/test.sh`. Set up test_data_dir and resume for the checkpoint
-- run 
-```Bash
-bash scripts/ASTER/scene_text/test.sh
-```
-### 6.2.2 Test ASTER on IAM dataset
-- DownLoad Pretrained Checkpoints, [ASTER on IAM, Checkpoints(提取码:mqqm)](https://pan.baidu.com/s/1CwxJFKDziZu1dlJCe1gHPg)
-- modify `scripts/ASTER/iam_dataset/test.sh`. Set up test_data_dir and resume for the checkpoint
-- run 
-```Bash
-bash scripts/ASTER/iam_dataset/test.sh
-```
-## 6.3 Test DAN
-### 6.3.1 Test DAN on Scene Text
-### 6.3.2 Test DAN on IAM dataset
-- DownLoad Pretrained Checkpoints, [DAN on IAM, Checkpoints(提取码:h7vp)](https://pan.baidu.com/s/1lxc3R31AKLyZ_xf_ltiFZA)
-- modify `scripts/ASTER/iam_dataset/test.sh`. Set up test_data_dir and resume for the checkpoint
-- run 
-```Bash
-bash scripts/ASTER/iam_dataset/test.sh
-```
-# Inferrence
-## 7.1 CRNN
-### 7.1.1 Inferrence CRNN on Scene Text
-- DownLoad Pretrained Checkpoints, [CRNN on STR, Checkpoints(提取码:o4mb)](https://pan.baidu.com/s/1aHiU1mDvYD5gs2G9Zr3JjQ)
-- modify `scripts/CRNN/scene_text/inferrence.sh`. Set up image_path and resume for the checkpoint
-- run 
-```Bash
-bash scripts/CRNN/scene_text/inferrence.sh
-```
-### 7.1.2 Inferrence CRNN on IAM dataset
-- DownLoad Pretrained Checkpoints, [CRNN on IAM, Checkpoints(提取码:3ajw)](https://pan.baidu.com/s/1_XUzvqgDy4HtRv2F6N34og)
-- modify `scripts/CRNN/iam_dataset/inferrence.sh`. Set up image_path and resume for the checkpoint
-- run 
-```Bash
-bash scripts/CRNN/iam_dataset/inferrence.sh
-```
-### 7.1.3 Inferrence CRNN on CASIA_HWDB dataset
-- DownLoad Pretrained Checkpoints, [CRNN on CASIA_HWDB, Checkpoints(提取码:ujpy)](https://pan.baidu.com/s/1AfWdvW9ShS09BIiBTIpa4Q)
-- modify `scripts/CRNN/CASIA_HWDB/inferrence.sh`. Set up image_path and resume for the checkpoint
-- run 
-```Bash
-bash scripts/CRNN/CASIA_HWDB/inferrence.sh
-```
-****
-## 7.2 ASTER
-### 7.2.1 Inferrence ASTER on Scene Text
-- DownLoad Pretrained Checkpoints, [ASTER on STR, Checkpoints(提取码:mcc9)](https://pan.baidu.com/s/1jMfLwRJrcfk7IQ5_NDw3-g)
-- modify `scripts/ASTER/scene_text/inferrence.sh`. Set up image_path and resume for the checkpoint
-- run 
-```Bash
-bash scripts/ASTER/scene_text/inferrence.sh
-```
-### 7.1.2 Inferrence ASTER on IAM dataset
-- DownLoad Pretrained Checkpoints, [ASTER on IAM, Checkpoints(提取码:mqqm)](https://pan.baidu.com/s/1CwxJFKDziZu1dlJCe1gHPg)
-- modify `scripts/ASTEriam_dataset/inferrence.sh`. Set up image_path and resume for the checkpoint
-- run 
-```Bash
-bash scripts/ASTER/iam_dataset/inferrence.sh
-```
-****
-## 7.3 DAN
-### 7.2.1 Inferrence DAN on Scene Text
-### 7.1.2 Inferrence DAN on IAM dataset
-- DownLoad Pretrained Checkpoints, [DAN on IAM, Checkpoints(提取码:h7vp)](https://pan.baidu.com/s/1lxc3R31AKLyZ_xf_ltiFZA)
-- modify `scripts/ASTEriam_dataset/inferrence.sh`. Set up image_path and resume for the checkpoint
-- run 
-```Bash
-bash scripts/ASTER/iam_dataset/inferrence.sh
-```
+# CheckPoints
+## CRNN
+### CRNN on Scene Text
+[CRNN on STR, Checkpoints(提取码:axf7)](https://pan.baidu.com/s/1Ik6d9aiN8HFCe57pha0Gsg)
+
+### CRNN on IAM dataset
+[CRNN on IAM, Checkpoints(提取码:3ajw)](https://pan.baidu.com/s/1_XUzvqgDy4HtRv2F6N34og)
+
+### CRNN on CASIA_HWDB dataset
+ [CRNN on CASIA_HWDB, Checkpoints(提取码:ujpy)](https://pan.baidu.com/s/1AfWdvW9ShS09BIiBTIpa4Q)
+
+## ASTER
+### ASTER on Scene Text
+[ASTER on STR, Checkpoints(提取码:mcc9)](https://pan.baidu.com/s/1jMfLwRJrcfk7IQ5_NDw3-g)
+
+### ASTER on IAM dataset
+[ASTER on IAM, Checkpoints(提取码:mqqm)](https://pan.baidu.com/s/1CwxJFKDziZu1dlJCe1gHPg)
+
+##  DAN
+### DAN on Scene Text
+### DAN on IAM dataset
+[DAN on IAM, Checkpoints(提取码:h7vp)](https://pan.baidu.com/s/1lxc3R31AKLyZ_xf_ltiFZA)
+
+# Email 📫
+mountchicken@outlook.com
 
