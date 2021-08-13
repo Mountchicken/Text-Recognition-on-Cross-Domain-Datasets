@@ -137,7 +137,7 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
 |#|IIIT5K|SVT|IC03|IC13|IC15|SVTP|CUTE|
 |----|----|----|----|----|----|----|----|
 |DAN1D(reimplemented)|78.5|75.6|84.7|78.8|61.5|59.7|63.2|
-|DAN1D(original)|**91.93**|**82.3**|**82.6**|**92.1**|**89.7**|#|#|#|
+|DAN1D(original)|**93.3**|**88.4**|**95.2**|**94.2**|**71.8**|**76.8**|**80.6**|
 
 ### 4.3.2 On Handwritten
 - Relative experiments are conducted on IAM dataset and CASIA-HWDB
