@@ -13,6 +13,7 @@ This is an experimental project, and the framework is changed every time i uploa
 |8/5|Checkpoint for ASTER on IAM dataset has beem released. It's much more accurate than CRNN due to attention model's implicit semantic information. You should not miss it😃|
 |8/8|New Algorithms! DAN(Decoupled attention network) is reimplented. checkpoint forb both scene text and iam dataset are realesed|
 |8/11|New Algorithms! ACE(Aggratation Cross-Entropy). It's a new loss function to handle text recognition task. Like CTC and Attention|
+|8/17|Retrained ACE and DAN; Add a powerful augmentation tool|
 ****
 # 1. Welcome!😃😃
 Now I'm focusing on a project to build a general ocr systems which can recognize different text domains. From scene text, hand written, document, chinese, english to even ancient books like confucian classics. So far I don't have a clear idea about how to do it, but let's just do it step by step. This repository is suitable for greens who are interesed in text recognition(I am a green too😂).
@@ -136,8 +137,8 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
 
 |#|IIIT5K|SVT|IC03|IC13|IC15|SVTP|CUTE|
 |----|----|----|----|----|----|----|----|
-|DAN1D(reimplemented)|90.6|83.3|88.2|87.5|71.3|71.8|72.6|
-|DAN1D(original)|**93.3**|**88.4**|**95.2**|**94.2**|**71.8**|**76.8**|**80.6**|
+|DAN1D(reimplemented)|91.2|83.8|89.4|88.7|**72.1**|70.2|74.7|
+|DAN1D(original)|**93.3**|**88.4**|**95.2**|**94.2**|71.8|**76.8**|**80.6**|
 
 ### 4.3.2 On Handwritten
 - Relative experiments are conducted on IAM dataset and CASIA-HWDB
@@ -163,8 +164,8 @@ Now I'm focusing on a project to build a general ocr systems which can recognize
   
 |#|IIIT5K|SVT|IC03|IC13|IC15|SVTP|CUTE|
 |----|----|----|----|----|----|----|----|
-|ACE(reimplemented)|78.5|75.6|84.7|78.8|61.5|59.7|63.2|
-|ACE(original)|**91.93**|**82.3**|**82.6**|**92.1**|**89.7**|#|#|#|
+|ACE(reimplemented)|**84.8**|76.7|84.0|82.6|65.3|64.8|68.8|
+|ACE(original)|82.3|**82.6**|**92.1**|**89.7**|#|#|#|
 
 
 # How to use
