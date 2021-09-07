@@ -14,6 +14,7 @@ This is an experimental project, and the framework is changed every time i uploa
 |8/8|New Algorithms! DAN(Decoupled attention network) is reimplented. checkpoint forb both scene text and iam dataset are realesed|
 |8/11|New Algorithms! ACE(Aggratation Cross-Entropy). It's a new loss function to handle text recognition task. Like CTC and Attention|
 |8/17|Retrained ACE and DAN; Add a powerful augmentation tool|
+|9/7|Training SRN and so on.|
 ****
 # 1. Welcome!😃😃
 Now I'm focusing on a project to build a general ocr systems which can recognize different text domains. From scene text, hand written, document, chinese, english to even ancient books like confucian classics. So far I don't have a clear idea about how to do it, but let's just do it step by step. This repository is suitable for greens who are interesed in text recognition(I am a green too😂).
