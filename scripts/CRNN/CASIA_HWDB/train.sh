@@ -13,5 +13,4 @@ CUDA_VISIBLE_DEVICES=0,1 python new_main.py \
   --stepLR 80 120 \
   --padresize \
   --evaluation_metric word_accuracy \
-  --augmentation IAM \
   --alphabets casia_360cc \
