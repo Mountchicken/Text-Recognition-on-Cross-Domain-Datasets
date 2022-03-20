@@ -63,20 +63,24 @@ class lmdbDataset(Dataset):
             except IOError:
                 print('Corrupted image for %d' % index)
                 return self[index + 1]
-            trans = transforms.Compose([
-                transforms.ToPILImage(),
-                transforms.ColorJitter(0.2, 0.2, 0.2, 0.2)
-            ])
+            trans = transforms.Compose(
+                [transforms.ColorJitter(0.3, 0.3, 0.3, 0.3)])
             if self.augmentation:
                 if np.random.rand() < 0.5:
                     img = cv2.cvtColor(np.asarray(img), cv2.COLOR_RGB2BGR)
                     img = distort(img, max(2, img.shape[1] // img.shape[0]))
+                    trans_ = transforms.ToPILImage()
+                    img = trans_(img)
                 if np.random.rand() < 0.5:
                     img = cv2.cvtColor(np.asarray(img), cv2.COLOR_RGB2BGR)
                     img = stretch(img, max(2, img.shape[1] // img.shape[0]))
+                    trans_ = transforms.ToPILImage()
+                    img = trans_(img)
                 if np.random.rand() < 0.5:
                     img = cv2.cvtColor(np.asarray(img), cv2.COLOR_RGB2BGR)
                     img = perspective(img)
+                    trans_ = transforms.ToPILImage()
+                    img = trans_(img)
             img = trans(img)
             label_key = 'label-%09d' % index
             label = str(txn.get(label_key.encode()).decode('utf-8'))
