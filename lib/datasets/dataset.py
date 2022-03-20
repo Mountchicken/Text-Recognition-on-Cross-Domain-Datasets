@@ -1,23 +1,30 @@
+import math
 import random
 import re
-import torch
-from torch.utils.data import Dataset
-from torch.utils.data import sampler
-from lib.augmentation.augment import distort, stretch, perspective
-import torchvision.transforms as transforms
-import lmdb
-import six
 import sys
-from PIL import Image
-import numpy as np
-import math
-from config import get_args
+
 import cv2
+import lmdb
+import numpy as np
+import six
+import torch
+import torchvision.transforms as transforms
+from config import get_args
+from lib.augmentation.augment import distort, perspective, stretch
+from PIL import Image
+from torch.utils.data import Dataset, sampler
+
 global_args = get_args(sys.argv[1:])
+
 
 class lmdbDataset(Dataset):
 
-    def __init__(self, alphabets, root=None, augmentation=False, target_transform=None, num_samples=math.inf):
+    def __init__(self,
+                 alphabets,
+                 root=None,
+                 augmentation=False,
+                 target_transform=None,
+                 num_samples=math.inf):
         self.env = lmdb.open(
             root,
             max_readers=1,
@@ -37,6 +44,7 @@ class lmdbDataset(Dataset):
         self.augmentation = augmentation
         self.target_transform = target_transform
         self.alphabets = alphabets
+
     def __len__(self):
         return self.nSamples
 
@@ -55,50 +63,48 @@ class lmdbDataset(Dataset):
             except IOError:
                 print('Corrupted image for %d' % index)
                 return self[index + 1]
-
+            trans = transforms.Compose([
+                transforms.ToPILImage(),
+                transforms.ColorJitter(0.2, 0.2, 0.2, 0.2)
+            ])
             if self.augmentation:
-                trans = transforms.Compose([
-                    transforms.ToPILImage(),
-                    transforms.ColorJitter(0.2,0.2,0.2,0.2)
-                ])
-                
                 if np.random.rand() < 0.5:
                     img = cv2.cvtColor(np.asarray(img), cv2.COLOR_RGB2BGR)
-                    img = distort(img, max(2, img.shape[1]//img.shape[0]))
-                    img = trans(img)
+                    img = distort(img, max(2, img.shape[1] // img.shape[0]))
                 if np.random.rand() < 0.5:
                     img = cv2.cvtColor(np.asarray(img), cv2.COLOR_RGB2BGR)
-                    img = stretch(img, max(2, img.shape[1]//img.shape[0]))      
-                    img = trans(img)
+                    img = stretch(img, max(2, img.shape[1] // img.shape[0]))
                 if np.random.rand() < 0.5:
                     img = cv2.cvtColor(np.asarray(img), cv2.COLOR_RGB2BGR)
                     img = perspective(img)
-                    img = trans(img)
-                
+            img = trans(img)
             label_key = 'label-%09d' % index
             label = str(txn.get(label_key.encode()).decode('utf-8'))
 
             if self.target_transform is not None:
                 label = self.target_transform(label)
-            if len(label)>=global_args.max_len:
-                #print('too long')
-                return self[index+1]
-            # if global_args.lower:
-            #     label = label.lower()
-            # also, we need to filter charcters not in the alphabets
+            if len(label) >= global_args.max_len:
+                # print('too long')
+                return self[index + 1]
             out_of_char = f'[^{self.alphabets}]'
-            label = re.sub(out_of_char, '',label)
+            label = re.sub(out_of_char, '', label)
         return (img, label)
+
 
 class Padresize(object):
     # 将文本行图像高度缩放到固定尺寸，宽度等比例变化，并进行填充
     # 对于超长样本，则需要缩放场边
-    def __init__(self, height, width, interpolation=Image.BILINEAR,mode='RGB'):
+    def __init__(self,
+                 height,
+                 width,
+                 interpolation=Image.BILINEAR,
+                 mode='RGB'):
         self.height = height
         self.width = width
         self.interpolation = interpolation
         self.mode = mode
         self.toTensor = transforms.ToTensor()
+
     def __call__(self, img):
         iw, ih = img.size
         scale = self.height / ih
@@ -106,13 +112,15 @@ class Padresize(object):
         target_width = int(scale * iw)
         if target_width <= self.width:
             img = img.resize((target_width, target_height), self.interpolation)
-            new_image = Image.new(self.mode,(self.width,self.height))
+            new_image = Image.new(self.mode, (self.width, self.height))
             new_image.paste(img)
         else:
             img = img.resize((target_width, target_height), self.interpolation)
-            new_image = img.resize((self.width, target_height), self.interpolation)
+            new_image = img.resize((self.width, target_height),
+                                   self.interpolation)
         new_image = self.toTensor(new_image)
         return new_image
+
 
 class resizeNormalize(object):
 
@@ -125,6 +133,7 @@ class resizeNormalize(object):
         img = img.resize(self.size, self.interpolation)
         img = self.toTensor(img)
         return img
+
 
 class randomSequentialSampler(sampler.Sampler):
 

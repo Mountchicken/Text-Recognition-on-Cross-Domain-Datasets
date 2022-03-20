@@ -13,5 +13,5 @@ CUDA_VISIBLE_DEVICES=0,1 python new_main.py \
   --punc \
   --padresize \
   --evaluation_metric word_accuracy \
-  --augmentation IAM \
+  --augmentation \
   --alphabets allcases \
